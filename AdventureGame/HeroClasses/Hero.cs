@@ -73,11 +73,12 @@ class Hero
 
     public void TakeDamage(int damage)
     {
+        damage -= defense;
+        if (damage < 0) damage = 0;
+
         health -= damage;
-        if (health < 0)
-        {
-            health = 0;
-        }
+        if (health < 0) health = 0;
+
         Console.WriteLine("You take " + damage + " damage! Health left: " + this.health + "/" + MAX_HEALTH);
     }
 
