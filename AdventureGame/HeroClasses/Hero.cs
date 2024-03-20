@@ -33,8 +33,9 @@ class Hero
         }
     }
 
-    public int DealDamage()
+    public void DealDamage(Enemy enemy)
     {
-        return attack;
+        // Deal "attack" damage to an enemy
+        enemy.TakeDamage(attack);
     }
 }
