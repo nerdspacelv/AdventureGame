@@ -2,83 +2,83 @@
 {
     public static void Main(string[] args)
     {
-        Room room1 = new Room("Room 1", "You are in Room 1. There is a door to the east.");
-        Room room2 = new Room("Room 2", "You are in Room 2. There are doors to the west and east.");
-        Room room3 = new Room("Room 3", "You are in Room 3. There is a door to the west.");
-        Room room4 = new Room("Room 4", "You are in Room 4. There is a door to the west.");
-        Room room5 = new Room("Room 5", "You are in Room 5. There is a wall to the west.");
+        MainMenu();
+    }
 
-        room1.EastRoom = room2;
-        room2.WestRoom = room1;
-        room2.EastRoom = room3;
-        room3.WestRoom = room2;
+    static void MainMenu()
+    {
+        string menuArt = @"
+                                                       ____________
+                                 (`-..________....---''  ____..._.-`
+                                  \\`._______.._,.---'''     ,'
+                                  ; )`.      __..-'`-.      /
+                                 / /     _.-' _,.;;._ `-._,'
+                                / /   ,-' _.-'  //   ``--._``._
+                              ,','_.-' ,-' _.- (( =-    -. `-._`-._____
+                            ,;.''__..-'   _..--.\\.--'````--.._``-.`-._`.
+             _          |\,' .-''        ```-'`---'`-...__,._  ``-.`-.`-.`.
+  _     _.-,'(__)\__)\-'' `     ___  .          `     \      `--._
+,',)---' /|)          `     `      ``-.   `     /     /     `     `-.
+\_____--.  '`  `               __..-.  \     . (   < _...-----..._   `.
+ \_,--..__. \\ .-`.\----'';``,..-.__ \  \      ,`_. `.,-'`--'`---''`.  )
+           `.\`.\  `_.-..' ,'   _,-..'  /..,-''(, ,' ; ( _______`___..'__
+                   ((,(,__(    ((,(,__,'  ``'-- `'`.(\  `.,..______   __
+                                                      ``--------..._``--.__
+        ";
+        Console.WriteLine(menuArt);
+        Console.WriteLine("Welcome to Your Game!");
+        Console.WriteLine("1. New Game");
+        Console.WriteLine("2. Load Game");
+        Console.WriteLine("3. Exit");
+        Console.Write("Enter your choice: ");
 
-        Player player = new Player(room1);
+        string choice = Console.ReadLine();
 
-
-        // menu 
-
-        Console.WriteLine("Welcome to the game");
-        Console.WriteLine("Type 'go east' to go east");
-        Console.WriteLine("Type 'go west' to go west");
-        
-
-        while (true)
+        switch (choice)
         {
-            Console.WriteLine(player.CurrentRoom.Description);
-
-            string command = Console.ReadLine();
-
-            if (command == "go east")
-            {
-                if (player.CurrentRoom.EastRoom != null)
-                {
-                    player.CurrentRoom = player.CurrentRoom.EastRoom;
-                }
-                else
-                {
-                    Console.WriteLine("You can't go that way.");
-                }
-            }
-            else if (command == "go west")
-            {
-                if (player.CurrentRoom.WestRoom != null)
-                {
-                    player.CurrentRoom = player.CurrentRoom.WestRoom;
-                }
-                else
-                {
-                    Console.WriteLine("You can't go that way.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid command.");
-            }
+            case "1":
+                NewGame();
+                break;
+            case "2":
+                LoadGame();
+                break;
+            case "3":
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Please try again.");
+                MainMenu();
+                break;
         }
     }
-}
 
-public class Room
-{
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public Room EastRoom { get; set; }
-    public Room WestRoom { get; set; }
-
-    public Room(string name, string description)
+    static void NewGame()
     {
-        Name = name;
-        Description = description;
+        Console.WriteLine("Starting a New Game...");
+        // TODO: Add game logic here
+        Console.WriteLine("New Game created!");
     }
-}
 
-public class Player
-{
-    public Room CurrentRoom { get; set; }
-
-    public Player(Room currentRoom)
+    static void LoadGame()
     {
-        CurrentRoom = currentRoom;
+        Console.WriteLine("Loading Game...");
+        // TODO: Add game loading logic here
+        Console.WriteLine("Game Loaded!");
+    }
+
+    static void SaveGame(string gameData)
+    {
+        // TODO: Add game saving logic here
+
+        //string saveDirectory = "./SavedGames";
+        //if (!Directory.Exists(saveDirectory))
+        //{
+        //    Directory.CreateDirectory(saveDirectory);
+        //}
+
+        //string saveFileName = $"Save_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+        //string saveFilePath = Path.Combine(saveDirectory, saveFileName);
+        //File.WriteAllText(saveFilePath, gameData);
+        //Console.WriteLine($"Game saved successfully as {saveFileName}");
     }
 }
