@@ -13,6 +13,8 @@
         room2.EastRoom = room3;
         room3.WestRoom = room2;
 
+        // test
+
         Player player = new Player(room1);
 
 
