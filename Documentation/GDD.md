@@ -1,6 +1,6 @@
 # Adventure game
 
-The purpoise of this document is to outline the design of the game, but won't touch on the technical implementation. This is all subject to change! Some inspirations could be taken from an older game, like Rogue: https://en.wikipedia.org/wiki/Rogue_(video_game)
+The purpose of this document is to outline the design of the game, but won't touch on the technical implementation. This is all subject to change! Some inspirations could be taken from an older game, like Rogue: https://en.wikipedia.org/wiki/Rogue_(video_game)
 
 ## Contents
 - General description
