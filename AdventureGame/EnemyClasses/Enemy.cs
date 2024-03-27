@@ -1,3 +1,4 @@
+
 class Enemy
 {
     public string name;
@@ -48,12 +49,17 @@ class Enemy
         {
             health = 0;
         }
-        Console.WriteLine(name" takes " + damage + " damage! Health left: " + this.health);
+        Console.WriteLine(name + " takes " + damage + " damage! Health left: " + this.health);
     }
     // can pass attack type with specific attacks if enemy can have several attack types.
     public int DealDamage() 
     {
         return attack;
+    }
+
+    internal void TakeDamage(int attack)
+    {
+        throw new NotImplementedException();
     }
     //TODO
     //public Item DropItem()
