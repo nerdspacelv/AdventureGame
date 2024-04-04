@@ -170,7 +170,7 @@ _#/|##########/\######(   /\   )######/\##########|\#_
         Console.WriteLine("Loading Game...");
         // TODO: Add game loading logic here
         Console.WriteLine("Game Loaded!");
-    }
+    }  
 
     static void SaveGame(string gameData)
     {
