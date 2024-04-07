@@ -1,6 +1,16 @@
-﻿public class Program
+﻿using System.Security.Cryptography.X509Certificates;
+
+public class Program
 {
-    public static void Main(string[] args)
+    // Hero details
+    static string heroName = "Jānis";
+    static int initialHealth = 10;
+    static int initialAttack = 5;
+    static int initialDefense = 5;
+    static int initialGold = 150;
+    static int initialLevel = 1;
+
+    static void Main(string[] args)
     {
         MainMenu();
     }
@@ -38,7 +48,7 @@ _#/|##########/\######(   /\   )######/\##########|\#_
         Console.WriteLine("");
         Console.WriteLine("Write [N] number of the menu item to proceed and press ENTER");
 
-        string choice = Console.ReadLine();
+        string choice = Console.ReadLine();        
 
         switch (choice)
         {
@@ -126,6 +136,18 @@ _#/|##########/\######(   /\   )######/\##########|\#_
             }
             Console.WriteLine();
         }
+        Console.WriteLine("-------------------------------------------------------------------------");
+        Console.WriteLine($"Hero: {heroName}    HP: {initialHealth}/10    ATK: {initialAttack}    DEF: {initialDefense}    GOLD: {initialGold}    LVL: {initialLevel}");
+        Console.WriteLine("-------------------------------------------------------------------------");
+        Console.WriteLine(" ");
+        Console.WriteLine("[MENU]");
+        Console.WriteLine("[9] Access inventory");
+        Console.WriteLine("[0] Main menu");
+        Console.WriteLine(" ");
+        Console.WriteLine("Enter a command");
+        Console.WriteLine("OR");
+        Console.WriteLine("Write [N] number of the menu item to proceed and press ENTER");
+
     }
 
     static void MovePlayer(ConsoleKey key)
